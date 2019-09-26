@@ -1,0 +1,58 @@
+
+<div class="container">
+<h1>Create Page</h1>
+    <p *ngIf = "err" style="color:red">Whoops! You've entered a non-valid Product, try again!</p>
+       
+        <form class="form">  
+                <p>Product's Name:</p>
+                <span style='color:red' *ngIf="!name.valid">What kind of product is it?</span><br>
+                <input class="input" name="name"[(ngModel)]="newRestaurant.name" #name="ngModel" required minlength="3">
+                <p>Quantity:</p>
+                <span style='color:red' *ngIf="!quantity.valid">How Many???</span><br>
+                <input class="input" name="quantity"[(ngModel)]="newRestaurant.quantity" #quantity="ngModel" required min="0">
+                <br>
+                <p>Price:</p>
+                <span style='color:red' *ngIf="!price.valid">How much are they going for?</span><br>
+                <input class="input" name="price"[(ngModel)]="newRestaurant.price" #price="ngModel" required min ="0">
+                <br>
+                <input *ngIf="name.valid && price.valid && quantity.valid" id="btn" type="submit" (click)="makeNewRestaurants()" value="Add Product!"><button id="cancel" [routerLink]="['/products']">Cancel</button>
+            </form>
+            
+
+
+
+
+</div>
+    
+<style>
+.container{
+text-align: center;
+background-image: url("https://miro.medium.com/max/1600/1*DLWaaHF41cdm8A_cuAFenQ.gif");
+background-repeat: no-repeat;
+background-position-y:60%;
+background-size: 100% 200%;
+}
+.input{
+border: 2px solid black;
+}
+#btn{
+height: 100px;
+width: 150px;
+background-color: green;
+color: white;
+border: 2px solid black;
+font-size: 25px;
+text-align: center;
+}
+#cancel{
+height: 100px;
+width: 150px;
+background-color: red;
+color: white;
+border: 2px solid black;
+margin: 20px;
+font-size: 25px;
+text-align: center;
+}
+
+</style>

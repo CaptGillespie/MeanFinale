@@ -1,0 +1,136 @@
+<div class="container">
+    <button [routerLink]="['/create']" class="button"><span>Create</span></button>
+<br>
+<br>
+<br>
+    <table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Actions</th>
+    </tr>
+    <tr>
+        <td>Sean</td>
+        <td>Gillespie</td>
+        <td><button [routerLink]="['/info', restaurant._id]" class="btn btn1">Read</button> | 
+            <button [routerLink]="['/update', restaurant._id]" class="btn btn2" >Update</button> | 
+            <button (click)="deleteOneRestaurant(restaurant._id)" class="btn btn3">Delete</button></td>
+    </tr>
+    <tr>
+        <td>Melissa</td>
+        <td>Borden</td>
+        <td>50</td>
+    </tr>
+</table>
+
+</div>
+
+<style>
+.container{
+    text-align: center;
+}
+table {
+border-collapse: collapse;
+width: 80%;
+margin-left: 10%;
+}
+th, td {
+padding: 8px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+text-align: center;
+}
+tr:hover {background-color:#0495f54f;}
+
+.button {
+background-color: yellow;
+color: black;
+margin: 5px;
+margin-top: 50px;
+height: 50px;
+width: 200px;
+font-size: 30px;
+border-radius: 20px;
+text-align: center;
+transition: all 0.5s;
+cursor: pointer;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.btn{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.btn1{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+.btn1:hover{
+    background-color: #4CAF50;
+    color: white;
+}
+.btn2{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+.btn2:hover{
+    background-color: #008CBA;
+    color: white;
+}
+.btn3{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #f44336;
+}
+.btn3:hover{
+    background-color: #f44336;
+  color: white;
+}
+
+#delete{
+    background-color: rgb(248, 91, 73);
+    color: black;
+    outline: 2px solid black;
+    margin: 5px;
+    margin-top: 20px;
+    height: 50px;
+    width: 110px;
+    font-size: 30px;
+}
+</style>

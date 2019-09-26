@@ -1,0 +1,53 @@
+<div class="container">
+        <h1>Update This Restaurant:</h1>
+        <!-- {{ thepet | json }} -->
+        <form class="form">  
+            <p>Product's Name:</p>
+            <span style='color:red' *ngIf="!name.valid">What do we call it?</span><br>
+            <input class="input" [(ngModel)]="therestaurant.name" name="therestaurant.name" #name="ngModel" required minlength="3" >
+            <p>Quantity:</p>
+            <span style='color:red' *ngIf="!quantity.valid">How many now?</span><br>
+            <input class="input" name="therestaurant.quantity"[(ngModel)]="therestaurant.quantity" #quantity="ngModel" required min=0>
+            <br>
+            <p>Product's Price:</p>
+            <span style='color:red' *ngIf="!price.valid">How many benji's?</span><br>
+            <input class="input" name="therestaurant.price"[(ngModel)]="therestaurant.price" #price="ngModel" required min=0>
+            <br>
+            <input *ngIf="name.valid && price.valid && quantity.valid" id="btn"  (click)="updateARestaurant(therestaurant)" value="Update!">
+            <button id="home" [routerLink]="['/products']">Cancel</button>
+          </form>
+    </div>
+
+<style>
+.container{
+text-align: center;
+/* background-image: url("https://miro.medium.com/max/1600/1*DLWaaHF41cdm8A_cuAFenQ.gif");
+background-repeat: no-repeat;
+background-position-x: -20%; */
+/* background-position-y: 20%; */
+}
+.input{
+outline: 2px solid black;
+text-align: center;
+}
+#btn{
+outline: 2px solid black;
+margin: 20px;
+background-color: green;
+color:white;
+text-align: center;
+width: 100px;
+height: 75px;
+font-size: 25px;
+}
+#home{
+background-color: red;
+color: white;
+outline: 2px solid black;
+width: 100px;
+height: 75px;
+text-align: center;
+margin: 20px;
+font-size: 25px;
+}
+</style>
